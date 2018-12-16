@@ -1,0 +1,36 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "apilambda",
+            "privacy": {
+                "protected": true,
+                "auth": "rw",
+                "unauth": "r"
+            }
+        }
+    ],
+    "resourceName": "apid240fad5",
+    "apiName": "apid240fad5",
+    "functionArns": [
+        {
+            "lambdaFunction": "apilambda"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "amplifytutorial-20181215185651-authRole",
+        "unAuthRoleName": "amplifytutorial-20181215185651-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "apilambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

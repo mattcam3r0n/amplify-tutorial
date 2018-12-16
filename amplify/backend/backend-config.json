@@ -21,6 +21,43 @@
 		"amplifytutorialstorage": {
 			"service": "S3",
 			"providerPlugin": "awscloudformation"
+		},
+		"foo": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"apilambda": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "foo",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"api": {
+		"apid240fad5": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "apilambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
 		}
 	}
 }

@@ -199,6 +199,66 @@
 					"env": "dev"
 				}
 			}
+		},
+		"storagefoo": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/storage/foo-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "foo",
+					"partitionKeyName": "id",
+					"partitionKeyType": "S",
+					"env": "dev"
+				}
+			}
+		},
+		"functionapilambda": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/function/apilambda-cloudformation-template.json",
+				"Parameters": {
+					"storagefooName": {
+						"Fn::GetAtt": [
+							"storagefoo",
+							"Outputs.Name"
+						]
+					},
+					"storagefooArn": {
+						"Fn::GetAtt": [
+							"storagefoo",
+							"Outputs.Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
+		},
+		"apiapid240fad5": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/api/apid240fad5-cloudformation-template.json",
+				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"functionapilambdaName": {
+						"Fn::GetAtt": [
+							"functionapilambda",
+							"Outputs.Name"
+						]
+					},
+					"functionapilambdaArn": {
+						"Fn::GetAtt": [
+							"functionapilambda",
+							"Outputs.Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
 		}
 	},
 	"Outputs": {
