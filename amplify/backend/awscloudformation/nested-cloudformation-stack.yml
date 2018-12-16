@@ -94,7 +94,7 @@
 				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/auth/cognito096d8c50-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "cognito096d8c50_identitypool_096d8c50",
-					"allowUnauthenticatedIdentities": false,
+					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
 					"lambdaLogPolicy": "cognito096d8c50_lambda_log_policy",
 					"openIdLambdaRoleName": "cognito096d8c50_openid_lambda_role",
@@ -149,6 +149,53 @@
 							"Arn"
 						]
 					},
+					"env": "dev"
+				}
+			}
+		},
+		"analyticsamplifytutorial": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"Parameters": {
+					"appName": "amplifytutorial",
+					"roleName": "pinpointLambdaRolef2d98c6d",
+					"cloudWatchPolicyName": "cloudWatchPolicyf2d98c6d",
+					"pinpointPolicyName": "pinpointPolicyf2d98c6d",
+					"authPolicyName": "pinpoint_amplify_f2d98c6d",
+					"unauthPolicyName": "pinpoint_amplify_f2d98c6d",
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"authRoleArn": {
+						"Fn::GetAtt": [
+							"AuthRole",
+							"Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
+		},
+		"storageamplifytutorialstorage": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplifytutorial-20181215185651-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"Parameters": {
+					"bucketName": "amplifytutorial39055084a75e4910a055e04a27196147",
+					"authPolicyName": "s3_amplify_bbac774a",
+					"unauthPolicyName": "s3_amplify_bbac774a",
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"authPermissions": "rw",
+					"unauthPermissions": "r",
 					"env": "dev"
 				}
 			}
