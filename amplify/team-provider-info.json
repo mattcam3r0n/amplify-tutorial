@@ -1,0 +1,38 @@
+{
+    "NONE": {
+        "awscloudformation": {
+            "AuthRoleName": "amplifytutorial-20181215183601-authRole",
+            "UnauthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215183601-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215183601-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplifytutorial-20181215183601-deployment",
+            "UnauthRoleName": "amplifytutorial-20181215183601-unauthRole",
+            "StackName": "amplifytutorial-20181215183601",
+            "StackId": "arn:aws:cloudformation:us-east-1:806438522188:stack/amplifytutorial-20181215183601/912781b0-00ca-11e9-9f25-0ad4d2e93658"
+        }
+    },
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "amplifytutorial-20181215185525-authRole",
+            "UnauthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215185525-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215185525-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplifytutorial-20181215185525-deployment",
+            "UnauthRoleName": "amplifytutorial-20181215185525-unauthRole",
+            "StackName": "amplifytutorial-20181215185525",
+            "StackId": "arn:aws:cloudformation:us-east-1:806438522188:stack/amplifytutorial-20181215185525/464c1e00-00cd-11e9-9dca-12f81177eb92"
+        }
+    },
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplifytutorial-20181215185651-authRole",
+            "UnauthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215185651-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::806438522188:role/amplifytutorial-20181215185651-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplifytutorial-20181215185651-deployment",
+            "UnauthRoleName": "amplifytutorial-20181215185651-unauthRole",
+            "StackName": "amplifytutorial-20181215185651",
+            "StackId": "arn:aws:cloudformation:us-east-1:806438522188:stack/amplifytutorial-20181215185651/79fc14d0-00cd-11e9-9188-12557b211f7c"
+        }
+    }
+}
